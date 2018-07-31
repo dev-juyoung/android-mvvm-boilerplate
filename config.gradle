@@ -17,6 +17,8 @@ ext {
             constraint: '1.1.2',
             lifecycle: '1.1.1',
             koin: '0.9.3',
+            retrofit: '2.4.0',
+            okhttp: '3.11.0',
 
             // test
             junit: '4.12',
@@ -51,6 +53,13 @@ ext {
 
             // dependency injection
             koin: "org.koin:koin-android-architecture:$versions.koin",
+
+            // network
+            network: [
+                    retrofit: "com.squareup.retrofit2:retrofit:$versions.retrofit",
+                    gson_converter: "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+                    okhttp: "com.squareup.okhttp3:okhttp:$versions.okhttp"
+            ],
 
             // test
             junit: "junit:junit:$versions.junit",

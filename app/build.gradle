@@ -56,6 +56,11 @@ dependencies {
     // dependency injection
     implementation deps.koin
 
+    // network
+    implementation deps.network.retrofit
+    implementation deps.network.okhttp
+    implementation deps.network.gson_converter
+
     // test
     testImplementation deps.junit
     androidTestImplementation deps.atsl.runner
