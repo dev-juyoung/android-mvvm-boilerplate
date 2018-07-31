@@ -7,6 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import xyz.cro.android_mvvm_boilerplate.BuildConfig
 import xyz.cro.android_mvvm_boilerplate.network.AuthenticationInterceptor
+import xyz.cro.android_mvvm_boilerplate.network.service.SampleService
 
 val networkModule = applicationContext {
     bean(KeySet.BEAN_HEADERS) {
@@ -25,5 +26,10 @@ val networkModule = applicationContext {
                 .client(get(KeySet.BEAN_HTTP_CLIENT))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
+    }
+
+    // Created Retrofit API Services
+    bean {
+        get<Retrofit>(KeySet.BEAN_API_SERVER).create(SampleService::class.java) as SampleService
     }
 }
