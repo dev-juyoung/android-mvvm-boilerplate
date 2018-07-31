@@ -50,6 +50,9 @@ dependencies {
     // TODO: 신규 Layout 파일 생성 시 자동 추가되는 Bug로 인해 임시 지정. (개발 완료 후 제거 필)
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 
+    // android architecture components
+    implementation deps.arch.lifecycle
+
     // test
     testImplementation deps.junit
     androidTestImplementation deps.atsl.runner

@@ -15,6 +15,7 @@ ext {
             // external libs
             support: '27.1.1',
             constraint: '1.1.2',
+            lifecycle: '1.1.1',
 
             // test
             junit: '4.12',
@@ -40,6 +41,11 @@ ext {
                     design: "com.android.support:design:$versions.support",
                     recyclerview: "com.android.support:recyclerview-v7:$versions.support",
                     constraint: "com.android.support.constraint:constraint-layout:$versions.constraint",
+            ],
+
+            // android architecture components
+            arch: [
+                    lifecycle: "android.arch.lifecycle:extensions:$versions.lifecycle"
             ],
 
             // test
