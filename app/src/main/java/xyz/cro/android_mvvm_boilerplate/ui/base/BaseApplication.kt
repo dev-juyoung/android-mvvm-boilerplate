@@ -6,6 +6,7 @@ import timber.log.Timber
 import xyz.cro.android_mvvm_boilerplate.di.appModule
 import xyz.cro.android_mvvm_boilerplate.di.networkModule
 import xyz.cro.android_mvvm_boilerplate.extensions.isDebuggable
+import xyz.cro.android_mvvm_boilerplate.util.StethoInitializer
 
 class BaseApplication : Application() {
     init {
@@ -23,6 +24,9 @@ class BaseApplication : Application() {
     private fun initializeDevTools() {
         // Timber
         Timber.plant(Timber.DebugTree())
+
+        // Stetho
+        StethoInitializer.init(this)
     }
 
     companion object {
