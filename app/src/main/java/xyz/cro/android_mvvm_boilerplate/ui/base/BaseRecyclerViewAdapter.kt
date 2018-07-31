@@ -19,6 +19,7 @@ abstract class BaseRecyclerViewAdapter<T, H : RecyclerView.ViewHolder> : Recycle
 
     abstract fun onBindView(holder: H, position: Int)
 
+    @Suppress("UNCHECKED_CAST")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
             onBindView(holder as H, position)
 
