@@ -22,6 +22,12 @@ ext {
             okhttp: '3.11.0',
             gson: '2.8.5',
 
+            // development helper tools
+            ktlint: '0.24.0',
+            timber: '4.7.1',
+            stetho: '1.5.0',
+            leakcanary: '1.6.1',
+
             // test
             junit: '4.12',
             atsl: '1.0.2',
@@ -67,6 +73,21 @@ ext {
             // data converter
             converter: [
                     gson: "com.google.code.gson:gson:$versions.gson"
+            ],
+
+            // development helper tools
+            devtools: [
+                    ktlint: "com.github.shyiko:ktlint:$versions.ktlint",
+                    timber: "com.jakewharton.timber:timber:$versions.timber",
+                    stetho: [
+                            core: "com.facebook.stetho:stetho:$versions.stetho",
+                            network: "com.facebook.stetho:stetho-okhttp3:$versions.stetho"
+                    ],
+                    leakcanary: [
+                            core: "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary",
+                            fragment: "com.squareup.leakcanary:leakcanary-support-fragment:$versions.leakcanary",
+                            no_op: "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leakcanary",
+                    ]
             ],
 
             // test
