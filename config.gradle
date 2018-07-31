@@ -22,6 +22,9 @@ ext {
             okhttp: '3.11.0',
             gson: '2.8.5',
 
+            // development helper tools
+            ktlint: '0.24.0',
+
             // test
             junit: '4.12',
             atsl: '1.0.2',
@@ -67,6 +70,11 @@ ext {
             // data converter
             converter: [
                     gson: "com.google.code.gson:gson:$versions.gson"
+            ],
+
+            // development helper tools
+            devtools: [
+                    ktlint: "com.github.shyiko:ktlint:$versions.ktlint",
             ],
 
             // test
