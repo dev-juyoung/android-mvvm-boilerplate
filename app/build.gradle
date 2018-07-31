@@ -66,6 +66,9 @@ dependencies {
     implementation deps.network.okhttp
     implementation deps.network.gson_converter
 
+    // data converter
+    implementation deps.converter.gson
+
     // test
     testImplementation deps.junit
     androidTestImplementation deps.atsl.runner
