@@ -71,6 +71,8 @@ dependencies {
 
     // development helper tools
     implementation deps.devtools.timber
+    implementation deps.devtools.stetho.core
+    implementation deps.devtools.stetho.network
 
     // test
     testImplementation deps.junit

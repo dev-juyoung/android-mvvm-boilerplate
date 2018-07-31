@@ -25,6 +25,7 @@ ext {
             // development helper tools
             ktlint: '0.24.0',
             timber: '4.7.1',
+            stetho: '1.5.0',
 
             // test
             junit: '4.12',
@@ -76,7 +77,11 @@ ext {
             // development helper tools
             devtools: [
                     ktlint: "com.github.shyiko:ktlint:$versions.ktlint",
-                    timber: "com.jakewharton.timber:timber:$versions.timber"
+                    timber: "com.jakewharton.timber:timber:$versions.timber",
+                    stetho: [
+                            core: "com.facebook.stetho:stetho:$versions.stetho",
+                            network: "com.facebook.stetho:stetho-okhttp3:$versions.stetho"
+                    ],
             ],
 
             // test
