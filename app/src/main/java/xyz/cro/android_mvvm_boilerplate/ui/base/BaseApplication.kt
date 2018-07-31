@@ -1,6 +1,7 @@
 package xyz.cro.android_mvvm_boilerplate.ui.base
 
 import android.app.Application
+import com.squareup.leakcanary.LeakCanary
 import org.koin.android.ext.android.startKoin
 import timber.log.Timber
 import xyz.cro.android_mvvm_boilerplate.di.appModule
@@ -27,6 +28,10 @@ class BaseApplication : Application() {
 
         // Stetho
         StethoInitializer.init(this)
+
+        // Leak Canary
+        if (LeakCanary.isInAnalyzerProcess(this)) return
+        LeakCanary.install(this)
     }
 
     companion object {
