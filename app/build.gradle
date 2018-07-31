@@ -73,6 +73,9 @@ dependencies {
     implementation deps.devtools.timber
     implementation deps.devtools.stetho.core
     implementation deps.devtools.stetho.network
+    debugImplementation deps.devtools.leakcanary.core
+    debugImplementation deps.devtools.leakcanary.fragment
+    releaseImplementation deps.devtools.leakcanary.no_op
 
     // test
     testImplementation deps.junit

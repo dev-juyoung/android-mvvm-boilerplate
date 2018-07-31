@@ -26,6 +26,7 @@ ext {
             ktlint: '0.24.0',
             timber: '4.7.1',
             stetho: '1.5.0',
+            leakcanary: '1.6.1',
 
             // test
             junit: '4.12',
@@ -82,6 +83,11 @@ ext {
                             core: "com.facebook.stetho:stetho:$versions.stetho",
                             network: "com.facebook.stetho:stetho-okhttp3:$versions.stetho"
                     ],
+                    leakcanary: [
+                            core: "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary",
+                            fragment: "com.squareup.leakcanary:leakcanary-support-fragment:$versions.leakcanary",
+                            no_op: "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leakcanary",
+                    ]
             ],
 
             // test
