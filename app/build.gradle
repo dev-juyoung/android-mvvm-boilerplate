@@ -17,10 +17,14 @@ android {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField("String", "SERVER_URL", "\"https://api.your-development.com/\"")
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField("String", "SERVER_URL", "\"https://api.your-production.com/\"")
         }
     }
     dataBinding {
