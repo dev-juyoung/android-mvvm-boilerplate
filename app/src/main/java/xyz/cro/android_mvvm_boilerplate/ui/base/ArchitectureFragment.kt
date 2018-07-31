@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-abstract class ArchitectureFragment<B : ViewDataBinding, VM: BaseViewModel> : BaseFragment() {
+abstract class ArchitectureFragment<B : ViewDataBinding, VM : BaseViewModel> : BaseFragment() {
     protected abstract var viewModel: VM
     protected lateinit var viewDataBinding: B
 
