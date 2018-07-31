@@ -53,6 +53,9 @@ dependencies {
     // android architecture components
     implementation deps.arch.lifecycle
 
+    // dependency injection
+    implementation deps.koin
+
     // test
     testImplementation deps.junit
     androidTestImplementation deps.atsl.runner
