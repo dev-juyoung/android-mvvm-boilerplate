@@ -69,6 +69,7 @@ ext {
             network: [
                     retrofit: "com.squareup.retrofit2:retrofit:$versions.retrofit",
                     gson_converter: "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+                    rxjava_adapter: "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
                     okhttp: "com.squareup.okhttp3:okhttp:$versions.okhttp"
             ],
 
