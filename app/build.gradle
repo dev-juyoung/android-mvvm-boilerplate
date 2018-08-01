@@ -1,33 +1,89 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion androidConfig.compileSDK
     defaultConfig {
         applicationId "xyz.cro.android_mvvm_boilerplate"
-        minSdkVersion 19
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion androidConfig.minSDK
+        targetSdkVersion androidConfig.targetSDK
+        versionCode androidConfig.versionCode
+        versionName androidConfig.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField("String", "SERVER_URL", "\"https://api.github.com/\"")
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField("String", "SERVER_URL", "\"https://api.your-production.com/\"")
         }
+    }
+    dataBinding {
+        enabled = true
+    }
+    androidExtensions {
+        experimental = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
+    // local libs files
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
+
+    // kotlin
+    implementation deps.kotlin.stdlib
+
+    // android support
+    implementation deps.support.appcompat_v7
+    implementation deps.support.design
+    implementation deps.support.recyclerview
+    implementation deps.support.constraint
+    // TODO: 신규 Layout 파일 생성 시 자동 추가되는 Bug로 인해 임시 지정. (개발 완료 후 제거 필)
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // android jetpack
+    implementation deps.androidx.ktx
+    implementation deps.androidx.lifecycle
+
+    // dependency injection
+    implementation deps.koin
+
+    // network
+    implementation deps.network.retrofit
+    implementation deps.network.okhttp
+    implementation deps.network.gson_converter
+    implementation deps.network.rxjava_adapter
+
+    // reactive support
+    implementation deps.reactivex.java
+    implementation deps.reactivex.android
+
+    // data converter
+    implementation deps.converter.gson
+
+    // development helper tools
+    implementation deps.devtools.timber
+    implementation deps.devtools.stetho.core
+    implementation deps.devtools.stetho.network
+    debugImplementation deps.devtools.leakcanary.core
+    debugImplementation deps.devtools.leakcanary.fragment
+    releaseImplementation deps.devtools.leakcanary.no_op
+
+    // test
+    testImplementation deps.junit
+    androidTestImplementation deps.atsl.runner
+    androidTestImplementation deps.espresso.core
 }
