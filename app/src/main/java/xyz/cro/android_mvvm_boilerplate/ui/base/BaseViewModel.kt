@@ -3,7 +3,7 @@ package xyz.cro.android_mvvm_boilerplate.ui.base
 import android.arch.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 
-class BaseViewModel : ViewModel() {
+abstract class BaseViewModel : ViewModel() {
     protected val compositeDisposable = CompositeDisposable()
 
     override fun onCleared() {
