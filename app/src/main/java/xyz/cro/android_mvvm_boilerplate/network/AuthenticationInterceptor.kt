@@ -2,6 +2,7 @@ package xyz.cro.android_mvvm_boilerplate.network
 
 import okhttp3.Interceptor
 import okhttp3.Response
+import timber.log.Timber
 import xyz.cro.android_mvvm_boilerplate.data.source.sharedpref.PreferencesDataContract
 import java.io.IOException
 
@@ -16,6 +17,7 @@ class AuthenticationInterceptor(private val prefRepository: PreferencesDataContr
 
         // Header에 Token 데이터 확인 후 추가
         val token = prefRepository.getToken()
+        Timber.d("tAuthenticationInterceptor::token: $token")
         if (!token.isNullOrEmpty()) builder.addHeader(KEY_AUTHORIZATION, token)
 
         return chain.proceed(builder.build())
