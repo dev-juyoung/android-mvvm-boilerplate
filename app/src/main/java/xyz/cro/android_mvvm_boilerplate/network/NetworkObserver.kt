@@ -16,7 +16,7 @@ abstract class NetworkObserver<T>(private val compositeDisposable: CompositeDisp
     }
 
     override fun onNext(t: T) {
-        Timber.d("NetworkObserver::onNext: ${t.toString()}")
+        Timber.d("NetworkObserver::onNext: $t")
         onSuccess(t)
     }
 

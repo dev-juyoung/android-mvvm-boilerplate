@@ -2,13 +2,17 @@ package xyz.cro.android_mvvm_boilerplate.ui.base
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.support.annotation.LayoutRes
 import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager
 import xyz.cro.android_mvvm_boilerplate.extensions.isDebuggable
 
 abstract class BaseActivity : AppCompatActivity() {
+    @LayoutRes protected abstract fun getLayoutResId(): Int
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(getLayoutResId())
 
         // 스크린 방향 PORTRAIT 고정
         try {
