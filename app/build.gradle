@@ -66,6 +66,10 @@ dependencies {
     implementation deps.network.okhttp
     implementation deps.network.gson_converter
 
+    // reactive support
+    implementation deps.reactivex.java
+    implementation deps.reactivex.android
+
     // data converter
     implementation deps.converter.gson
 

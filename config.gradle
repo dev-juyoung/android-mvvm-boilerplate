@@ -21,6 +21,8 @@ ext {
             retrofit: '2.4.0',
             okhttp: '3.11.0',
             gson: '2.8.5',
+            rxjava: '2.2.0',
+            rxandroid: '2.0.2',
 
             // development helper tools
             ktlint: '0.24.0',
@@ -68,6 +70,12 @@ ext {
                     retrofit: "com.squareup.retrofit2:retrofit:$versions.retrofit",
                     gson_converter: "com.squareup.retrofit2:converter-gson:$versions.retrofit",
                     okhttp: "com.squareup.okhttp3:okhttp:$versions.okhttp"
+            ],
+
+            // reactive support
+            reactivex: [
+                    java: "io.reactivex.rxjava2:rxjava:$versions.rxjava",
+                    android: "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
             ],
 
             // data converter
