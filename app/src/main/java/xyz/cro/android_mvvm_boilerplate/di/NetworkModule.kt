@@ -10,7 +10,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import xyz.cro.android_mvvm_boilerplate.BuildConfig
 import xyz.cro.android_mvvm_boilerplate.network.AuthenticationInterceptor
 import xyz.cro.android_mvvm_boilerplate.network.service.GithubService
-import xyz.cro.android_mvvm_boilerplate.network.service.SampleService
 
 val networkModule = applicationContext {
     bean(KeySet.BEAN_HEADERS) {
@@ -34,10 +33,6 @@ val networkModule = applicationContext {
     }
 
     // Created Retrofit API Services
-    bean {
-        get<Retrofit>(KeySet.BEAN_API_SERVER).create(SampleService::class.java) as SampleService
-    }
-
     bean {
         get<Retrofit>(KeySet.BEAN_API_SERVER).create(GithubService::class.java) as GithubService
     }
