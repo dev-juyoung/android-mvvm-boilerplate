@@ -2,14 +2,17 @@ package xyz.cro.android_mvvm_boilerplate.ui.base
 
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
+import android.os.Bundle
+import android.support.annotation.LayoutRes
 
 abstract class ArchitectureActivity<B : ViewDataBinding, VM : BaseViewModel> : BaseActivity() {
-    protected abstract var viewModel: VM
+    protected abstract val viewModel: VM
     protected lateinit var viewDataBinding: B
+    @LayoutRes protected abstract fun getLayoutResId(): Int
 
-    override fun setContentView(layoutResID: Int) {
-        super.setContentView(layoutResID)
-        viewDataBinding = DataBindingUtil.setContentView(this, layoutResID)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewDataBinding = DataBindingUtil.setContentView(this, getLayoutResId())
     }
 
     override fun onDestroy() {
