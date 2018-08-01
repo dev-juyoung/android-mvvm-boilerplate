@@ -1,12 +1,11 @@
 package xyz.cro.android_mvvm_boilerplate.network
 
-import android.content.SharedPreferences
 import okhttp3.Interceptor
 import okhttp3.Response
-import xyz.cro.android_mvvm_boilerplate.util.Constants
+import xyz.cro.android_mvvm_boilerplate.data.source.sharedpref.PreferencesDataContract
 import java.io.IOException
 
-class AuthenticationInterceptor(private val pref: SharedPreferences) : Interceptor {
+class AuthenticationInterceptor(private val prefRepository: PreferencesDataContract) : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         val original = chain.request()
@@ -16,7 +15,7 @@ class AuthenticationInterceptor(private val pref: SharedPreferences) : Intercept
         }
 
         // Header에 Token 데이터 확인 후 추가
-        val token = pref.getString(Constants.PREF_TOKEN, "")
+        val token = prefRepository.getToken()
         if (!token.isNullOrEmpty()) builder.addHeader(KEY_AUTHORIZATION, token)
 
         return chain.proceed(builder.build())
