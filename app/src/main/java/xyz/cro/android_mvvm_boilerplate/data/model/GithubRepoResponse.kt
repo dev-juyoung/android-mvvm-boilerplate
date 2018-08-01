@@ -1,8 +1,6 @@
 package xyz.cro.android_mvvm_boilerplate.data.model
 import com.google.gson.annotations.SerializedName
 
-
-
 data class GithubRepoResponse(
     @SerializedName("id") val id: Int,
     @SerializedName("node_id") val nodeId: String,

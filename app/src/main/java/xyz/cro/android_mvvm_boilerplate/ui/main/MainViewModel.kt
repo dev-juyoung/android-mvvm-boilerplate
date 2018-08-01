@@ -19,12 +19,12 @@ class MainViewModel(private val githubRepository: GithubDataContract) : BaseView
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : NetworkObserver<List<GithubRepoResponse>>(compositeDisposable) {
                     override fun onSuccess(data: List<GithubRepoResponse>) {
-                        Timber.d("MainViewModel::onSuccess: ${data[0].toString()}")
+                        Timber.d("MainViewModel::onSuccess: ${data[0]}")
                         repoList.value = data
                     }
 
                     override fun onError(e: NetworkError) {
-                        Timber.e("MainViewModel::onError: ${e.toString()}")
+                        Timber.e("MainViewModel::onError: $e")
                     }
                 })
     }
