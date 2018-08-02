@@ -20,6 +20,7 @@ ext {
             koin: '0.9.3',
             retrofit: '2.4.0',
             okhttp: '3.11.0',
+            glide: '4.7.1',
             gson: '2.8.5',
             rxjava: '2.2.0',
             rxandroid: '2.0.2',
@@ -70,7 +71,13 @@ ext {
                     retrofit: "com.squareup.retrofit2:retrofit:$versions.retrofit",
                     gson_converter: "com.squareup.retrofit2:converter-gson:$versions.retrofit",
                     rxjava_adapter: "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
-                    okhttp: "com.squareup.okhttp3:okhttp:$versions.okhttp"
+                    okhttp: "com.squareup.okhttp3:okhttp:$versions.okhttp",
+            ],
+
+            // image loader
+            glide: [
+                    core: "com.github.bumptech.glide:glide:$versions.glide",
+                    compiler: "com.github.bumptech.glide:compiler:$versions.glide"
             ],
 
             // reactive support

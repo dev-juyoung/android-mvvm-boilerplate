@@ -67,6 +67,10 @@ dependencies {
     implementation deps.network.gson_converter
     implementation deps.network.rxjava_adapter
 
+    // image loader
+    implementation deps.glide.core
+    kapt deps.glide.compiler
+
     // reactive support
     implementation deps.reactivex.java
     implementation deps.reactivex.android
