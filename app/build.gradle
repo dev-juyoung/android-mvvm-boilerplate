@@ -16,13 +16,22 @@ android {
     buildTypes {
         debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-basic.pro'
+            proguardFile 'proguard-debug.pro'
+            proguardFile 'proguard-glide.pro'
+            proguardFile 'proguard-gson.pro'
+            proguardFile 'proguard-okhttp.pro'
+            proguardFile 'proguard-retrofit.pro'
 
             buildConfigField("String", "SERVER_URL", "\"https://api.github.com/\"")
         }
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-basic.pro'
+            proguardFile 'proguard-glide.pro'
+            proguardFile 'proguard-gson.pro'
+            proguardFile 'proguard-okhttp.pro'
+            proguardFile 'proguard-retrofit.pro'
 
             buildConfigField("String", "SERVER_URL", "\"https://api.your-production.com/\"")
         }
@@ -51,7 +60,6 @@ dependencies {
     implementation deps.support.design
     implementation deps.support.recyclerview
     implementation deps.support.constraint
-    // TODO: 신규 Layout 파일 생성 시 자동 추가되는 Bug로 인해 임시 지정. (개발 완료 후 제거 필)
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 
     // android jetpack
@@ -66,6 +74,10 @@ dependencies {
     implementation deps.network.okhttp
     implementation deps.network.gson_converter
     implementation deps.network.rxjava_adapter
+
+    // image loader
+    implementation deps.glide.core
+    kapt deps.glide.compiler
 
     // reactive support
     implementation deps.reactivex.java
